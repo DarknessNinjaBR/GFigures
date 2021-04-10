@@ -30,8 +30,8 @@ if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
     <?php include ("header.php") ?>
     <div class="body">
         <div class="content">
-            <div class="account_info">
-                <div class="card margin_1_percent" style="width: 18rem;">
+            <div class="row account_info">
+                <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
                     <img class="card-img-top" src="assets\img\Admin Panel\Admin Product.jpg" alt="Capa produto">
                     <div class="card-body">
                         <h5 class="card-title">Adicionar Produto</h5>
@@ -39,7 +39,7 @@ if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
                         <a href="formProduct.php" class="btn btn-primary">Adicionar</a>
                     </div>
                 </div>
-                <div class="card margin_1_percent" style="width: 18rem;">
+                <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
                         <img class="card-img-top" src="assets\img\Admin Panel\Admin Category.jpg" alt="Capa categoria">
                         <div class="card-body">
                         <h5 class="card-title">Adicionar Categoria</h5>
@@ -47,7 +47,7 @@ if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
                         <a href="formCategory.php" class="btn btn-primary">Adicionar</a>
                         </div>
                     </div>
-                <div class="card margin_1_percent" style="width: 18rem;">
+                <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
                         <img class="card-img-top" src="assets\img\Admin Panel\Admin Brand.jpg" alt="Capa marca">
                         <div class="card-body">
                         <h5 class="card-title">Adicionar Marca</h5>
@@ -56,22 +56,22 @@ if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
                     </div>
                 </div>
             </div>
-        <div class="account_info">
-        <div class="card margin_1_percent" style="width: 18rem;">
+        <div class="row account_info">
+        <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Lista de Produto</h5>
                         <p class="card-text">Veja a lista de todos os produtos adicionados.</p>
                         <a href="listProduct.php" class="btn btn-primary">Ver</a>
                     </div>
                 </div>
-                <div class="card margin_1_percent" style="width: 18rem;">
+                <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
                         <div class="card-body">
                         <h5 class="card-title">Lista de Categoria</h5>
                         <p class="card-text">Veja a lista de todos os categorias adicionados.</p>
                         <a href="listCategory.php" class="btn btn-primary">Ver</a>
                         </div>
                     </div>
-                <div class="card margin_1_percent" style="width: 18rem;">
+                <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
                         <div class="card-body">
                         <h5 class="card-title">Lista de Marca</h5>
                         <p class="card-text">Veja a lista de todass os marcas adicionados.</p>
