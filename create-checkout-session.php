@@ -6,7 +6,7 @@ require_once('vendor/stripe-php/init.php');
 
 header('Content-Type: application/json');
 
-$YOUR_DOMAIN = 'http://localhost/public';
+$YOUR_DOMAIN = 'http://localhost';
 
 $checkout_session = \Stripe\Checkout\Session::create([
   'payment_method_types' => ['card', 'boleto'],
@@ -60,8 +60,8 @@ $checkout_session = \Stripe\Checkout\Session::create([
     ],
   ],
   'mode' => 'payment',
-  'success_url' => $YOUR_DOMAIN . '/success.html',
-  'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
+  'success_url' => $YOUR_DOMAIN . '/confirmOrder.php?complete=true',
+  'cancel_url' => $YOUR_DOMAIN . '/confirmOrder.php?complete=false',
 ]);
 
 header("HTTP/1.1 303 See Other");

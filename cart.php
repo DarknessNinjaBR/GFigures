@@ -143,6 +143,10 @@ if (isset($_GET["action"])) {
                                         $prazo = $_SESSION['prazo_sedex'];
                                 ?>
                                         <input type="text" hidden name="frete" value="<?php echo ($prazo . ": R$" . $frete_price); ?>">
+                                        <input type="text" hidden name="frete_price" value="<?php echo ($frete_price); ?>">
+                                        <input type="text" hidden name="frete_deadline" value="<?php echo ($prazo); ?>">
+                                        <input type="text" hidden name="frete_name" value="SEDEX">
+
                                     <?php
 
                                     } else if ($_GET["frete"] == "pac") {
@@ -150,6 +154,9 @@ if (isset($_GET["action"])) {
                                         $prazo = $_SESSION['prazo_pac'];
                                     ?>
                                         <input type="text" hidden name="frete" value="<?php echo ($prazo . ": R$" . $frete_price); ?>">
+                                        <input type="text" hidden name="frete_price" value="<?php echo ($frete_price); ?>">
+                                        <input type="text" hidden name="frete_deadline" value="<?php echo ($prazo); ?>">
+                                        <input type="text" hidden name="frete_name" value="PAC">
                                     <?php
                                     } else {
                                         $frete_price = 0;
