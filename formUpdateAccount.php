@@ -1,6 +1,6 @@
 <?php
 session_start();
-include ("database.php");
+include("database.php");
 
 
 if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
@@ -21,11 +21,12 @@ if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <link rel="icon" href="assets/img/Icon/icon.png">
-    <title>Atualizar conta</title>
+  <title>Atualizar conta</title>
 </head>
+
 <body>
-    <?php include ("header.php") ?>
-    <div class="body">
+  <?php include("header.php") ?>
+  <div class="body">
     <div class="conteudo" class="container">
       <div class="register_form_column">
         <form onSubmit="return checkPassword(this)" class="needs-validation" novalidate action="receiveUpdateRegister.php" method="POST">
@@ -51,7 +52,7 @@ if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Confirmar Senha</label>
-                  <input type="password" name="confirm_password" required maxlength="64" class="form-control" id="confirm_password" placeholder="Comfirmar Senha">
+                  <input type="password" name="confirm_password" required maxlength="64" class="form-control" id="confirm_password" placeholder="Confirmar Senha">
                   <div class="invalid-feedback">Este campo é obrigatório.</div>
                 </div>
               </div>

@@ -1,10 +1,8 @@
 <?php
 
-	$host = "localhost";
-	$user = "id13950916_localhost";
-	$pass = "x5-~I|A}6Iuj/caq";
-	$data = "id13950916_olz";
-	
-	$connect = mysqli_connect($host, $user, $pass, $data);
+$host = "mysql";
+$user = "root";
+$pass = "123.456";
+$data = "ist";
 
-?>
+$connect = mysqli_connect($host, $user, $pass, $data, 3306);

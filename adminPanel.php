@@ -1,10 +1,10 @@
 <?php
 session_start();
-include ("database.php");
+include("database.php");
 
 if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
     header("location: index.php");
-}else{
+} else {
     if ($_SESSION['admin'] < 1) {
         header("location: index.php");
     }
@@ -26,13 +26,14 @@ if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
     <link rel="icon" href="assets/img/Icon/icon.png">
     <title>Painel de administrador</title>
 </head>
+
 <body>
-    <?php include ("header.php") ?>
+    <?php include("header.php") ?>
     <div class="body">
         <div class="content">
             <div class="row account_info">
                 <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
-                    <img class="card-img-top" src="assets\img\Admin Panel\Admin Product.jpg" alt="Capa produto">
+                    <!-- <img class="card-img-top" src="assets\img\Admin Panel\Admin Product.jpg" alt="Capa produto"> -->
                     <div class="card-body">
                         <h5 class="card-title">Adicionar Produto</h5>
                         <p class="card-text">Clique para Adicionar um produto, ele ficará disponivel na home para compra. É necessário adicionar a marca e a categoria.</p>
@@ -40,24 +41,24 @@ if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
                     </div>
                 </div>
                 <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
-                        <img class="card-img-top" src="assets\img\Admin Panel\Admin Category.jpg" alt="Capa categoria">
-                        <div class="card-body">
+                    <!-- <img class="card-img-top" src="assets\img\Admin Panel\Admin Category.jpg" alt="Capa categoria"> -->
+                    <div class="card-body">
                         <h5 class="card-title">Adicionar Categoria</h5>
                         <p class="card-text">Clique para Adicionar uma marca, adicione a um produto e ela filtrará os produtos na aba de "Colecionaveis".</p>
                         <a href="formCategory.php" class="btn btn-primary">Adicionar</a>
-                        </div>
                     </div>
+                </div>
                 <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
-                        <img class="card-img-top" src="assets\img\Admin Panel\Admin Brand.jpg" alt="Capa marca">
-                        <div class="card-body">
+                    <!-- <img class="card-img-top" src="assets\img\Admin Panel\Admin Brand.jpg" alt="Capa marca"> -->
+                    <div class="card-body">
                         <h5 class="card-title">Adicionar Marca</h5>
                         <p class="card-text">Clique para Adicionar uma marca, adicione a um produto e ela filtrará os produtos na aba de "Marcas".</p>
                         <a href="formBrand.php" class="btn btn-primary">Adicionar</a>
                     </div>
                 </div>
             </div>
-        <div class="row account_info">
-        <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
+            <div class="row account_info">
+                <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Lista de Produto</h5>
                         <p class="card-text">Veja a lista de todos os produtos adicionados.</p>
@@ -65,26 +66,26 @@ if (!isset($_SESSION['id']) && empty($_SESSION['id'])) {
                     </div>
                 </div>
                 <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
-                        <div class="card-body">
+                    <div class="card-body">
                         <h5 class="card-title">Lista de Categoria</h5>
                         <p class="card-text">Veja a lista de todos os categorias adicionados.</p>
                         <a href="listCategory.php" class="btn btn-primary">Ver</a>
-                        </div>
                     </div>
+                </div>
                 <div class="mx-auto col-3 card margin_1_percent" style="width: 18rem;">
-                        <div class="card-body">
+                    <div class="card-body">
                         <h5 class="card-title">Lista de Marca</h5>
-                        <p class="card-text">Veja a lista de todass os marcas adicionados.</p>
+                        <p class="card-text">Veja a lista de todas os marcas adicionados.</p>
                         <a href="listBrand.php" class="btn btn-primary">Ver</a>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
     </div>
     <footer class="footer">
         Todos os direitos reservados © DNBR
-</footer>
+    </footer>
 </body>
 
 </html>

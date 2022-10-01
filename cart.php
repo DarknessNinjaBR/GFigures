@@ -33,10 +33,10 @@ if (isset($_GET["add"])) {
                 );
                 array_push($_SESSION['cart'], $item_array);
             }
-            echo '<script>window.location="Cart.php"</script>';
+            echo '<script>window.location="cart.php"</script>';
         } else {
             echo '<script>alert("Product is already Added to Cart")</script>';
-            echo '<script>window.location="Cart.php"</script>';
+            echo '<script>window.location="cart.php"</script>';
         }
     } else {
         $item_array = array(
@@ -53,7 +53,7 @@ if (isset($_GET["action"])) {
             if ($value["product_id"] == $_GET["id"]) {
                 unset($_SESSION["cart"][$keys]);
                 echo '<script>alert("Product has been Removed...!")</script>';
-                echo '<script>window.location="Cart.php"</script>';
+                echo '<script>window.location="cart.php"</script>';
             }
         }
     }
@@ -120,131 +120,131 @@ if (isset($_GET["action"])) {
         <div class="content">
             <div class="cart_info">
                 <form method="post" action="receiveCart.php" style="width: 95%;">
-                <?php
-                if (!empty($_SESSION["cart"])) {
-                ?>
-                    <div></div>
-                    <h3 class="title2">Detalhes do Carrinho</h3>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th width="30%">Produto</th>
-                                <th width="10%">Quantidade</th>
-                                <th width="13%">Preço</th>
-                                <th width="10%">Preço total</th>
-                                <th width="17%">Remover</th>
-                            </tr>
-                            <input type="text" hidden name="id_user" value="<?php echo $_SESSION["id"]; ?>">
-                            <?php
-
-                            if ($_GET["frete"]) {
-                                if ($_GET["frete"] == "sedex") {
-                                    $frete_price = $_SESSION['sedex'];
-                                    $prazo = $_SESSION['prazo_sedex'];
-                            ?>
-                                    <input type="text" hidden name="frete" value="<?php echo ($prazo . ": R$" . $frete_price); ?>">
-                                <?php
-
-                                } else if ($_GET["frete"] == "pac") {
-                                    $frete_price = $_SESSION['pac'];
-                                    $prazo = $_SESSION['prazo_pac'];
-                                ?>
-                                    <input type="text" hidden name="frete" value="<?php echo ($prazo . ": R$" . $frete_price); ?>">
-                                <?php
-                                } else {
-                                    $frete_price = 0;
-                                }
-                            }
-
-                            $total = 0;
-
-                            foreach ($_SESSION["cart"] as $key => $value) {
-                                ?>
+                    <?php
+                    if (!empty($_SESSION["cart"])) {
+                    ?>
+                        <div></div>
+                        <h3 class="title2">Detalhes do Carrinho</h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
                                 <tr>
-                                    <td><?php echo $value["name"]; ?></td>
-                                    <td><?php echo $value["item_quantity"]; ?></td>
-                                    <td>R$<?php echo number_format($value["price"], 2, ",", "."); ?></td>
-                                    <td>
-                                        R$<?php $qnt_price = $value["item_quantity"] * $value["price"];
-                                            echo number_format($qnt_price, 2, ",", "."); ?></td>
-                                    <td><a href="Cart.php?action=delete&id=<?php echo $value["product_id"]; ?>"><span class="text-danger">Remove Item</span></a></td>
-                                    <input type="text" hidden name="id_product[]" value="<?php echo $value["product_id"]; ?>">
-                                    <input type="text" hidden name="quantity_product[]" value="<?php echo $value["item_quantity"]; ?>">
-
-
+                                    <th width="30%">Produto</th>
+                                    <th width="10%">Quantidade</th>
+                                    <th width="13%">Preço</th>
+                                    <th width="10%">Preço total</th>
+                                    <th width="17%">Remover</th>
                                 </tr>
-                            <?php
-                                $total = $total + $qnt_price;
-                            }
-                            $total = $total + str_replace(",", ".", $frete_price);
+                                <input type="text" hidden name="id_user" value="<?php echo $_SESSION["id"]; ?>">
+                                <?php
 
-                            ?>
-                            <input type="text" hidden name="total_price" value="<?php echo $total; ?>">
-                            <tr>
-                                <!-- <td colspan="3" align="right">Frete</td>
+                                if ($_GET["frete"]) {
+                                    if ($_GET["frete"] == "sedex") {
+                                        $frete_price = $_SESSION['sedex'];
+                                        $prazo = $_SESSION['prazo_sedex'];
+                                ?>
+                                        <input type="text" hidden name="frete" value="<?php echo ($prazo . ": R$" . $frete_price); ?>">
+                                    <?php
+
+                                    } else if ($_GET["frete"] == "pac") {
+                                        $frete_price = $_SESSION['pac'];
+                                        $prazo = $_SESSION['prazo_pac'];
+                                    ?>
+                                        <input type="text" hidden name="frete" value="<?php echo ($prazo . ": R$" . $frete_price); ?>">
+                                    <?php
+                                    } else {
+                                        $frete_price = 0;
+                                    }
+                                }
+
+                                $total = 0;
+
+                                foreach ($_SESSION["cart"] as $key => $value) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $value["name"]; ?></td>
+                                        <td><?php echo $value["item_quantity"]; ?></td>
+                                        <td>R$<?php echo number_format($value["price"], 2, ",", "."); ?></td>
+                                        <td>
+                                            R$<?php $qnt_price = $value["item_quantity"] * $value["price"];
+                                                echo number_format($qnt_price, 2, ",", "."); ?></td>
+                                        <td><a href="cart.php?action=delete&id=<?php echo $value["product_id"]; ?>"><span class="text-danger">Remove Item</span></a></td>
+                                        <input type="text" hidden name="id_product[]" value="<?php echo $value["product_id"]; ?>">
+                                        <input type="text" hidden name="quantity_product[]" value="<?php echo $value["item_quantity"]; ?>">
+
+
+                                    </tr>
+                                <?php
+                                    $total = $total + $qnt_price;
+                                }
+                                $total = $total + str_replace(",", ".", $frete_price);
+
+                                ?>
+                                <input type="text" hidden name="total_price" value="<?php echo $total; ?>">
+                                <tr>
+                                    <!-- <td colspan="3" align="right">Frete</td>
                                 <th align="right">R$<?php echo $_SESSION['frete'] ?></th>
                                 <td></td>
                             </tr>-->
-                            <tr>
-                                <td>
-                                    <?php
-                                    echo ($prazo);
-                                    ?>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td> <?php
-                                        echo ("R$" . str_replace(".", ",", $frete_price));
-                                        ?></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" align="right">Total</td>
-                                <th align="right">R$<?php echo number_format($total, 2, ",", "."); ?></th>
-                                <td></td>
-                            </tr>
-                        </table>
-                        <div class="row">
-                            <div class="col" style="display: flex; justify-content: right;">
-                                <div class="dropdown text-left">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        ESCOLHER FRETE
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="cart.php?frete=sedex">SEDEX</a>
-                                        <a class="dropdown-item" href="cart.php?frete=pac">PAC</a>
+                                <tr>
+                                    <td>
+                                        <?php
+                                        echo ($prazo);
+                                        ?>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td> <?php
+                                            echo ("R$" . str_replace(".", ",", $frete_price));
+                                            ?></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" align="right">Total</td>
+                                    <th align="right">R$<?php echo number_format($total, 2, ",", "."); ?></th>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <div class="row">
+                                <div class="col" style="display: flex; justify-content: right;">
+                                    <div class="dropdown text-left">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            ESCOLHER FRETE
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="cart.php?frete=sedex">SEDEX</a>
+                                            <a class="dropdown-item" href="cart.php?frete=pac">PAC</a>
+                                        </div>
                                     </div>
+                                    <?php
+                                    ?>
                                 </div>
                                 <?php
+                                if ($_GET["frete"] == "sedex" || $_GET["frete"] == "pac") {
+
                                 ?>
-                            </div>
+
+                                    <div class="col" style="display: flex; justify-content: flex-end;"><button type="input" class="btn btn-lg btn-success">Comprar <span class="carousel-control-next-icon" aria-hidden="true" style="height: 13px;"></span></button></div>
+
+
+                                <?php
+
+                                } else {
+                                ?>
+
+                                    <div class="col" style="display: flex; justify-content: flex-end;"><button type="button" disabled class="btn btn-lg btn-danger">Selecione um frete<span class="carousel-control-next-icon" aria-hidden="true" style="height: 13px;"></span></button></div>
+
+
                             <?php
-                            if ($_GET["frete"] == "sedex" || $_GET["frete"] == "pac") {
-
-                            ?>
-
-                                <div class="col" style="display: flex; justify-content: flex-end;"><button type="input" class="btn btn-lg btn-success">Comprar <span class="carousel-control-next-icon" aria-hidden="true" style="height: 13px;"></span></button></div>
-
-
-                            <?php
-
+                                }
                             } else {
-                            ?>
-
-                                <div class="col" style="display: flex; justify-content: flex-end;"><button type="button" disabled class="btn btn-lg btn-danger">Selecione um frete<span class="carousel-control-next-icon" aria-hidden="true" style="height: 13px;"></span></button></div>
-
-
-                        <?php
+                                echo ("<h2><a href='index.php'>Selecione produtos para adicionar ao carrinho!</a></h2>");
                             }
-                        } else {
-                            echo ("<h2><a href='index.php'>Selecione produtos para adicionar ao carrinho!</a></h2>");
-                        }
 
-                        ?>
+                            ?>
+                            </div>
+
+
+
                         </div>
-
-
-
-                    </div>
                 </form>
             </div>
         </div>

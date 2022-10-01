@@ -1,6 +1,6 @@
 <?php
 session_start();
-include ("database.php");
+include("database.php");
 error_reporting(0);
 
 if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
@@ -39,11 +39,11 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 
         $frete =  $xml->cServico;
 
-        $valorFrete = "".$frete->Valor."";
+        $valorFrete = "" . $frete->Valor . "";
         $_SESSION['pac'] = $valorFrete;
 
 
-        $prazoPac = "PAC - Prazo de ".$frete->PrazoEntrega." dias";
+        $prazoPac = "PAC - Prazo de " . $frete->PrazoEntrega . " dias";
         $_SESSION['prazo_pac'] = $prazoPac;
 
         $_SESSION['frete'] = "<p>PAC: R$ " . $frete->Valor . "<br />Prazo: " . $frete->PrazoEntrega . " dias</p>";
@@ -79,11 +79,11 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 
         $frete =  $xml->cServico;
 
-        $valorFrete = "".$frete->Valor."";
+        $valorFrete = "" . $frete->Valor . "";
         $_SESSION['sedex'] = $valorFrete;
 
 
-        $prazoPac = "SEDEX - Prazo de ".$frete->PrazoEntrega." dias";
+        $prazoPac = "SEDEX - Prazo de " . $frete->PrazoEntrega . " dias";
         $_SESSION['prazo_sedex'] = $prazoPac;
 
         $_SESSION['frete'] = $_SESSION['frete'] . "<p>SEDEX: R$ " . $frete->Valor . "<br />Prazo: " . $frete->PrazoEntrega . " dias</p>";
@@ -166,20 +166,20 @@ if (isset($_GET["id"])) {
                                                         if ($i == 0) {
                                                     ?>
                                                             <div class="carousel-item active">
-                                                                <img class="d-block w-100" src="<?php echo("assets/img/Product Img/".$img_data['url']); ?>" alt="Primeiro Slide">
+                                                                <img class="d-block w-100" src="<?php echo ("assets/img/Product Img/" . $img_data['url']); ?>" alt="Primeiro Slide">
                                                             </div>
                                                         <?php
                                                         } else {
                                                         ?>
                                                             <div class="carousel-item">
-                                                                <img class="d-block w-100" src="<?php echo("assets/img/Product Img/".$img_data['url']); ?>" alt="Segundo Slide">
+                                                                <img class="d-block w-100" src="<?php echo ("assets/img/Product Img/" . $img_data['url']); ?>" alt="Segundo Slide">
                                                             </div>
                                                     <?php
                                                         }
                                                         $i = $i + 1;
                                                     }
                                                     ?>
-                                                <!--<div class="carousel-item active">
+                                                    <!--<div class="carousel-item active">
                                                         <img class="d-block w-100" src="https://cdn.awsli.com.br/600x450/203/203009/produto/47757693/27ebd5282e.jpg" alt="Primeiro Slide">
                                                     </div>
                                                     <div class="carousel-item">
@@ -190,8 +190,8 @@ if (isset($_GET["id"])) {
                                                     </div>-->
                                                 </div>
                                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                   <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-                                                   <img width="20" src="https://suncatcherstudio.com/uploads/patterns/arrow-icons/png/circle-left-arrow-icon.png" alt="">
+                                                    <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+                                                    <img width="20" src="https://suncatcherstudio.com/uploads/patterns/arrow-icons/png/circle-left-arrow-icon.png" alt="">
                                                     <span class="sr-only">Anterior</span>
                                                 </a>
                                                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
@@ -261,7 +261,7 @@ if (isset($_GET["id"])) {
                                                                         <div class="form-group">
                                                                             <label for="exampleInputEmail1">Digite Seu CEP</label>
                                                                             <input type="text" class="form-control" name="cep" id="cep" placeholder="Seu cep">
-                                                                            <input type="id" hidden class="form-control" name="id" id="cep" value="<?php echo($product_data['id']); ?>">
+                                                                            <input type="id" hidden class="form-control" name="id" id="cep" value="<?php echo ($product_data['id']); ?>">
                                                                             <small class="form-text text-muted"><a href="http://www.consultaenderecos.com.br/busca-endereco" target="_blank">Não sei meu CEP</a></small>
                                                                             <div>
                                                                                 <?php
@@ -284,10 +284,10 @@ if (isset($_GET["id"])) {
                                                     </div>
 
                                                     <div class="product-add-to-cart">
-                                                        <form method="POST" action="cart.php?add=true&id=<?php echo($product_data['id']); ?>">
+                                                        <form method="POST" action="cart.php?add=true&id=<?php echo ($product_data['id']); ?>">
                                                             <div class="cart-plus-minus">
-                                                                <input class="form-control" type="text" name="id" hidden value="<?php echo($product_data['id']); ?>">
-                                                                
+                                                                <input class="form-control" type="text" name="id" hidden value="<?php echo ($product_data['id']); ?>">
+
                                                                 <span class="control-label">Quantidade</span>
                                                                 <input class="form-control" style="width: 65px;" type="number" min="1" max="100" name="quantity" value="1">
                                                             </div>
